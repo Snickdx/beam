@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Beam">
+  <rect width="512" height="512" fill="#202020"/>
+  <path fill="#e2a325" d="M256 48l38.4 145.6L440 256l-145.6 62.4L256 464l-38.4-145.6L72 256l145.6-62.4z"/>
+</svg>

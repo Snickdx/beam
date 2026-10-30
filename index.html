@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en-TT">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Beam — The Daily Trini Word Ladder</title>
+  <meta name="description" content="Beam is a daily word ladder from Trinidad and Tobago. Change one letter at a time and reach BEAM. Trini slang, food, places, brands, and acronyms count.">
+  <meta name="application-name" content="Beam">
+  <meta name="author" content="Beam">
+  <meta name="theme-color" content="#202020" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#202020" media="(prefers-color-scheme: light)">
+  <meta name="color-scheme" content="dark">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Beam">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-TileColor" content="#202020">
+  <meta name="msapplication-TileImage" content="icons/icon-144.png">
+  <meta name="msapplication-config" content="browserconfig.xml">
+  <meta name="msapplication-navbutton-color" content="#202020">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Beam">
+  <meta property="og:title" content="Beam — The Daily Trini Word Ladder">
+  <meta property="og:description" content="Change one letter at a time and reach BEAM. English and Trini talk count.">
+  <meta property="og:image" content="icons/icon-512.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="512">
+  <meta property="og:locale" content="en_TT">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Beam — The Daily Trini Word Ladder">
+  <meta name="twitter:description" content="Change one letter at a time and reach BEAM. English and Trini talk count.">
+  <meta name="twitter:image" content="icons/icon-512.png">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="icons/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/icon-180.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="icons/icon-152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="icons/icon-167.png">
+  <link rel="mask-icon" href="icons/favicon.svg" color="#e2a325">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="accent" aria-hidden="true"></div>
+  <header class="top">
+    <h1>Beam <svg class="mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2l2.4 9.1L28 16l-9.6 4.9L16 30l-2.4-9.1L4 16l9.6-4.9z"/></svg></h1>
+    <p id="meta" class="meta"></p>
+  </header>
+  <main>
+    <p id="toast" class="toast" role="status"></p>
+    <div id="board" class="board" aria-label="Word ladder"></div>
+  </main>
+  <div id="keyboard" class="keyboard" aria-label="Keyboard"></div>
+  <footer class="links">
+    <button type="button" id="yesterday">Yesterday's answer</button>
+    <button type="button" id="stats">Stats</button>
+    <button type="button" id="help">How to play</button>
+    <button type="button" id="mode">Practice</button>
+    <button type="button" id="new-practice" hidden>New word</button>
+    <button type="button" id="share" hidden>Share</button>
+  </footer>
+  <div id="modal" class="modal-back" hidden></div>
+  <script src="js/words.js"></script>
+  <script src="js/game.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./sw.js").catch(() => {});
+      });
+    }
+    if (new URLSearchParams(location.search).get("mode") === "practice") {
+      document.documentElement.dataset.launchMode = "practice";
+    }
+  </script>
+</body>
+</html>
